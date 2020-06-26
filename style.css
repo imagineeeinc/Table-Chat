@@ -77,8 +77,7 @@ body {
 body {
     font-family:  'Space Mono, Arial', monospace;
     font: monospace;
-    background-image: url("sheet.jpg");
-    background-repeat: repeat-x;
+    background-color: lightblue;
     color: white;
 }
 }
