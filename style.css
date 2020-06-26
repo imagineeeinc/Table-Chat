@@ -38,8 +38,6 @@ body {
 
 @media only screen and (max-width: 769px) {
     #header {
-    background-image: url("sheet.jpg");
-    background-repeat: repeat-x;
     font-size: 34px;
     margin-top: -8%;
     height: 170px;
