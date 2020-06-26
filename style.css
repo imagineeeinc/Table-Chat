@@ -1,7 +1,5 @@
 @media only screen and (min-width: 770px) {
     #header {
-    background-image: url("sheet.jpg");
-    background-repeat: repeat-x;
     font-size: 75px;
     margin-top: -6.75%;
     height: 400px
@@ -29,19 +27,6 @@
     text-shadow: 0px 1px 1px grey;
     box-shadow: 1px 1px 2px grey;
     color: white;
-    }
-    footer {
-    background-image: url("sheet.jpg");
-    background-repeat: repeat-x;
-    height: 250px;
-    text-align: center;
-}
-#butboxd {
-    float: right;
-    margin-right: 50px;
-    border-left: 2px solid white;
-    padding-left: 20px;
-}
 }
 
 @media only screen and (max-width: 769px) {
@@ -66,10 +51,7 @@
     box-shadow: 1px 1px 2px grey;
     color: grey;
     margin-left: 10px;
-    }
-    a#appbut > img {
-        width: 23px;
-    }
+}
     a {
     border-radius: 5px;
     text-decoration: none;
@@ -78,20 +60,12 @@
     text-shadow: 0px 1px 1px grey;
     color: white;
     }
-    footer {
-    background-image: url("sheet.jpg");
-    background-repeat: repeat-x;
-    height: 60%;
-    text-align: center;
-}
-    #butboxd {
-
-    }
 }
 body {
     font-family:  'Space Mono, Arial', monospace;
     font: monospace;
-    background-color: #1f1f1f;
+    background-image: url("sheet.jpg");
+    background-repeat: repeat-x;
     color: white;
 }
 a#appbut:hover {
