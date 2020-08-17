@@ -11,4 +11,6 @@ npm install
 npm start
 ```
 
+Uses Socket.io express.js and Node.js
+
 Rooms, gifs and images support coming latter
