@@ -1,5 +1,3 @@
-![](src/favicon.ico)
+# Table Chat
 
-# DEV-NOTE
-
-Dev Note Has Moved To [Wood Note](https://imagineeeinc.github.io/Wood-note.net/)
+A simple and light Chat App
