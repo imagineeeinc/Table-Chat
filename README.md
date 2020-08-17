@@ -2,9 +2,13 @@
 
 A simple and light Chat App
 
+with message caching, people
+
 ```
 # To Install dependencies
 npm install
 # To Start The Server
 npm start
 ```
+
+Rooms, gifs and images support coming latter
