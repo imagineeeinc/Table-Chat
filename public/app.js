@@ -33,9 +33,13 @@ const message = document.getElementById('in');
 const output = document.getElementById('chatbox');
 const people = document.getElementById('people');
 const uname = document.getElementById('name')
+const cachesize = 400
 
 //keypress
 document.onkeypress = function (e) {
+    if (document.onkeypress) {
+        socket.emit('styping', uname.value);
+    }
     e = e || window.event;
     // use e.keyCode
     //console.log(event);
@@ -50,6 +54,9 @@ function sendit() {
         /*socket.emit('chat', {
             message: message.value,
         });*/
+        if (uname.value == "") {
+            alert("You Do Not Have A username")
+        }
         socket.emit('chat', document.getElementById('in').value, uname.value);
       }
       //once the message is sent, reset the innerHTML of the message div to an empty string
@@ -77,9 +84,6 @@ socket.on('chat message', function(msg, name){
     var m = msg
     cacheit(m)
   });
-  socket.on('typing', function(data){
-    output.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
-});
 socket.on('name set', function(name, oldname){
     if (name != uname.value) {
         var out = document.createElement("li")
@@ -88,9 +92,12 @@ socket.on('name set', function(name, oldname){
         people.append(out);
         document.getElementById("oldname").remove();
     }
-  });
-  socket.on('typing', function(data){
-    output.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+});
+socket.on('numpeople', function(nump){
+    document.getElementById("nump").innerHTML = "There are " + nump + " people online";
+});
+  socket.on('typing', function(name){
+    document.getElementById("typing").innerHTML = name + " is Typing";
 });
 function check_web_storage_support() {
     if(typeof(Storage) !== "undefined") {
@@ -108,10 +115,11 @@ function showname() {
         document.getElementById('you').innerHTML = result;
     }
     if(result === null) {
-        result = "";
-        document.getElementById('you').innerHTML = "you";
+        result = "user" + (Math.random() * 100000) + 1;
+        document.getElementById('you').innerHTML = result;
     }
     uname.value = result;
+    save()
 }
 
 function save() {
@@ -139,7 +147,7 @@ function sendname() {
     socket.emit('name', uname.value, localStorage.getItem('oldname'));
 }
 function cacheit(msg) {
-    if (cache.length < 20){
+    if (cache.length < cachesize){
         cache.push(msg)
     } else {
         cache.shift()
